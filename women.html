@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWear - Women's Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>FitWear</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html" class="active">Women</a></li>
+                <li><a href="cart.html">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button class="icon-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="products-page">
+        <div class="page-header">
+            <h1>Women's Collection</h1>
+            <p>Stylish activewear that empowers your workout</p>
+        </div>
+
+        <div class="products-container">
+            <aside class="filters-sidebar">
+
+                <div class="filter-section">
+                    <h3>Size</h3>
+                    <div class="size-options">
+                        <button class="size-btn">XS</button>
+                        <button class="size-btn">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="products-main">
+                <div class="products-toolbar">
+    <p class="results-count">Showing 6 products</p>
+</div>
+
+<div class="products-grid">
+
+    <!-- PRODUCT CARD -->
+    <div class="product-card" onclick="location.href='product.html?id=1&gender=women'">
+        <div class="product-image">
+            <img src="images/jacket_women.jpg" alt="Product Image">
+        </div>
+        <p class="product-category">Jacket</p>
+        <h3 class="product-name">Jacket</h3>
+        <div class="product-price">$45.99</div>
+    </div>
+
+    <div class="product-card" onclick="location.href='product.html?id=2&gender=women'">
+        <div class="product-image">
+            <img src="images/compression_tshirt_women.jpg">
+        </div>
+        <p class="product-category">Tshirts</p>
+        <h3 class="product-name">Compression Tshirt</h3>
+        <div class="product-price">$39.99</div>
+    </div>
+
+    <div class="product-card" onclick="location.href='product.html?id=3&gender=women'">
+        <div class="product-image">
+            <img src="images/joggers_women.jpg">
+        </div>
+        <p class="product-category">Joggers</p>
+        <h3 class="product-name">Premium Joggers</h3>
+        <div class="product-price">$65.99</div>
+    </div>
+
+    <div class="product-card" onclick="location.href='product.html?id=4&gender=women'">
+        <div class="product-image">
+            <img src="images/sports_bra.jpg">
+        </div>
+        <p class="product-category">Sports Bra</p>
+        <h3 class="product-name">Sports Bra</h3>
+        <div class="product-price">$79.99</div>
+    </div>
+
+</div>
+
+
+                <div class="products-grid" id="womenProductsGrid">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+    <script>
+(function updateNavbarCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartCount = document.getElementById("cartCount");
+    if (cartCount) {
+        cartCount.innerText = cart.length;
+    }
+})();
+</script>
+
+</body>
+</html>

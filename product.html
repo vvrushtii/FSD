@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Details - FitWear</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <h2>FitWear</h2>
+        <ul class="nav-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="cart.html">Cart <span id="cartCount">0</span></a></li>
+            <li><a href="account.html">Account</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="product-page">
+    <div class="product-container">
+
+        <div class="product-image">
+            <img id="productImg" alt="Product">
+        </div>
+
+        <div class="product-details">
+            <h1 id="productName"></h1>
+            <p class="product-price" id="productPrice"></p>
+            <p id="productDesc"></p>
+
+            <div class="size-options">
+                <button>M</button>
+                <button>L</button>
+                <button>XL</button>
+            </div>
+
+            <button class="hero-btn" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+    </div>
+</main>
+
+<script>
+const menProducts = {
+    1: {
+        name: "Performance Training Shirt",
+        price: "$45.99",
+        desc: "High-performance gym shirt with breathable fabric.",
+        img: "images/compression_jacket_men.jpg"
+    },
+    2: {
+        name: "Compression Shorts",
+        price: "$39.99",
+        desc: "Comfort fit shorts designed for intense workouts.",
+        img: "images/compression_shorts_men.jpg"
+    },
+    3: {
+        name: "Premium Joggers",
+        price: "$65.99",
+        desc: "Stylish joggers with flexible stretch fabric.",
+        img: "images/joggers_men.jpg"
+    },
+    4: {
+        name: "Training Hoodie",
+        price: "$79.99",
+        desc: "Warm hoodie for intense training sessions.",
+        img: "images/hoodie_men.jpg"
+    }
+};
+
+const womenProducts = {
+    1: {
+        name: "Women's Jacket",
+        price: "$45.99",
+        desc: "Lightweight jacket for workouts.",
+        img: "images/jacket_women.jpg"
+    },
+    2: {
+        name: "Compression T-Shirt",
+        price: "$39.99",
+        desc: "Breathable compression t-shirt.",
+        img: "images/compression_tshirt_women.jpg"
+    },
+    3: {
+        name: "Joggers",
+        price: "$65.99",
+        desc: "Comfortable joggers with stretch fit.",
+        img: "images/joggers_women.jpg"
+    },
+    4: {
+        name: "Sports Bra",
+        price: "$79.99",
+        desc: "High-support sports bra.",
+        img: "images/sports_bra.jpg"
+    }
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const gender = params.get("gender");
+
+const product =
+    gender === "women"
+        ? womenProducts[id]
+        : menProducts[id];
+
+if (product) {
+    document.getElementById("productName").innerText = product.name;
+    document.getElementById("productPrice").innerText = product.price;
+    document.getElementById("productDesc").innerText = product.desc;
+    document.getElementById("productImg").src = product.img;
+}
+
+function addToCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({
+        name: product.name,
+        price: parseFloat(product.price.replace("$","")),
+        img: product.img
+    });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert("✅ Added to cart!");
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const countEl = document.getElementById("cartCount");
+    if (countEl) countEl.innerText = cart.length;
+}
+
+updateCartCount();
+</script>
+<script>
+(function updateNavbarCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartCount = document.getElementById("cartCount");
+    if (cartCount) {
+        cartCount.innerText = cart.length;
+    }
+})();
+</script>
+
+
+</body>
+</html>

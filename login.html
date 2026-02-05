@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FitWear – Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+<div class="login-card">
+  <h1 class="brand">FitWear</h1>
+  <p class="subtitle">Premium Gym Apparel</p>
+
+  <label>Username</label>
+  <input type="text" placeholder="admin@fitwear.com">
+
+  <label>Password</label>
+  <input type="password" placeholder="Enter password">
+
+  <div class="login-row">
+    <label><input type="checkbox"> Remember me</label>
+    <a href="#">Forgot password?</a>
+  </div>
+
+  <button onclick="login()">Sign In</button>
+</div>
+
+<script>
+function login(e) {
+  e.preventDefault();   // VERY IMPORTANT
+  window.location.href = "home.html";
+}
+</script>
+
+</body>
+</html>

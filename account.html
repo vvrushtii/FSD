@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account – FitWear</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR (same structure as other pages) -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <h2>FitWear</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="cart.html">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+            <li><a href="account.html" class="active">Account</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="icon-btn">
+                <!-- search icon svg -->
+            </button>
+            <button class="icon-btn">
+                <!-- heart icon svg -->
+            </button>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<main class="account-wrapper">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="account-menu">
+        <h3>User Profile</h3>
+
+        <button class="menu-item active">User Info</button>
+        <button class="menu-item">Favorites</button>
+        <button class="menu-item">Watchlist</button>
+        <button class="menu-item">Settings</button>
+        <button class="menu-item">Notifications</button>
+
+        <button class="menu-item logout">Log out</button>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <section class="account-panel">
+
+        <!-- PROFILE HEADER -->
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <!-- IMAGE PLACEHOLDER -->
+                <img src="images/pfp.jpg" alt="Profile Image">
+                <span class="edit-avatar">✎</span>
+            </div>
+
+            <div>
+                <h2>Sara Tancredi</h2>
+                <p class="location">New York, USA</p>
+            </div>
+        </div>
+
+        <!-- PROFILE FORM -->
+        <form class="profile-form">
+            <div class="form-grid">
+                <div>
+                    <label>Name</label>
+                    <input type="text" value="Sara">
+                </div>
+
+                <div>
+                    <label>Full Name</label>
+                    <input type="text" value="Tancredi">
+                </div>
+
+                <div>
+                    <label>Email Address</label>
+                    <input type="email" value="sara@gmail.com">
+                </div>
+
+                <div>
+                    <label>Phone Number</label>
+                    <input type="text" value="+98 9123728167">
+                </div>
+
+                <div>
+                    <label>Location</label>
+                    <input type="text" placeholder="e.g. New York, USA">
+                </div>
+
+                <div>
+                    <label>Postal Code</label>
+                    <input type="text" value="23728167">
+                </div>
+            </div>
+
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+
+    </section>
+
+</main>
+</body>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWear - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>FitWear</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="cart.html">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button class="icon-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-subtitle">PERFORMANCE COLLECTION</span>
+                <h1 class="hero-title">Elevate Your<br>Training Game</h1>
+                <p class="hero-description">Premium gym wear designed for champions. Experience unmatched comfort and style.</p>
+                <button class="hero-btn" onclick="window.location.href='men.html'">Discover Now</button>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <img src="images/home_main.jpg" alt="Hero Image">
+                </div>
+
+            </div>
+            <div class="hero-nav">
+                <button class="hero-nav-btn" aria-label="Previous">&lt;</button>
+                <button class="hero-nav-btn" aria-label="Next">&gt;</button>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="categories">
+            <h2 class="section-title">Shop By Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="window.location.href='women.html'">
+                    <div class="hero-image-placeholder">
+                    <img src="images/category_1.jpg" alt="Hero Image">
+                </div>
+                    <div class="category-info">
+                        <h3>WOMEN'S COLLECTION</h3>
+                        <p>Stylish & Functional</p>
+                        <span class="category-link">Shop Now →</span>
+                    </div>
+                </div>
+                <div class="category-card" onclick="window.location.href='men.html'">
+                    <div class="hero-image-placeholder">
+                    <img src="images/category_2.jpg" alt="Hero Image">
+                </div>
+                    <div class="category-info">
+                        <h3>MEN'S COLLECTION</h3>
+                        <p>Power & Performance</p>
+                        <span class="category-link">Shop Now →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals -->
+        <section class="new-arrivals">
+            <div class="section-header">
+                <h2 class="section-title">New Arrivals</h2>
+                <div class="section-tabs">
+                    <button class="tab-btn active">All</button>
+                    <button class="tab-btn">Men</button>
+                    <button class="tab-btn">Women</button>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="newArrivalsGrid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Promotional Banners -->
+        <section class="promo-section">
+            <div class="promo-grid">
+                <div class="promo-card promo-large">
+                    <div class="promo-content">
+                        <span class="promo-label">SEASONAL SALE</span>
+                        <h3>Summer Fitness<br>Collection</h3>
+                        <button class="promo-btn">Shop Now</button>
+                    </div>
+                </div>
+                <div class="promo-card promo-small">
+                    <div class="promo-content">
+                        <span class="promo-label">NEW RELEASE</span>
+                        <h3>Premium<br>Activewear</h3>
+                        <button class="promo-btn">Explore</button>
+                    </div>
+                </div>
+                <div class="promo-card promo-discount">
+                    <div class="promo-content">
+                        <h2 class="discount-text">50%<br>OFF</h2>
+                        <p>On Selected Items</p>
+                        <button class="promo-btn">Shop Sale</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    <script src="script.js"></script>
+    <script>
+(function updateNavbarCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartCount = document.getElementById("cartCount");
+    if (cartCount) {
+        cartCount.innerText = cart.length;
+    }
+})();
+</script>
+
+</body>
+</html>
